@@ -6,3 +6,15 @@ The documentation is built using [pixi](https://pixi.sh). To build the documenta
 ```bash
 pixi run build_docs
 ```
+
+
+## Run Demo
+To build the config file for the demo run:
+```bash
+pixi run build_config
+```
+
+Then to run the demo script:
+```bash
+pixi run demo
+```

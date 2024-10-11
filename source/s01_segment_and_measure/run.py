@@ -22,41 +22,45 @@ def main(config: AcquisitionConfig):
 
     config.output_dir.mkdir(parents=True, exist_ok=True)
 
+    suffix = ".TIF"
     for item in scandir(config.raw_data_dir):
         logger.info(f"Processing item: {item.name}")
-        name = item.name.split(".tif")[0]
-        image = imread(item.path)
+        if item.name.endswith(suffix):
+            name = item.name.split(suffix)[0]
+            image = imread(item.path)
 
-        # Step 1: Apply Otsu's thresholding
-        threshold_value = filters.threshold_otsu(image)
-        binary_image = image > threshold_value
+            # Step 1: Apply Otsu's thresholding
+            threshold_value = filters.threshold_otsu(image)
+            binary_image = image > threshold_value
 
-        # Step 2: Remove small objects/noise if necessary
-        binary_image_cleaned = morphology.remove_small_objects(
-            binary_image, min_size=64
-        )
-        # Step 3: Fill holes within the binary mask
-        binary_image_filled = morphology.remove_small_holes(
-            binary_image_cleaned, area_threshold=64
-        )
+            # Step 2: Remove small objects/noise if necessary
+            binary_image_cleaned = morphology.remove_small_objects(
+                binary_image, min_size=64
+            )
+            # Step 3: Fill holes within the binary mask
+            binary_image_filled = morphology.remove_small_holes(
+                binary_image_cleaned, area_threshold=64
+            )
 
-        # Step 4: Label the connected components (nuclei)
-        labeled_image = segmentation.clear_border(measure.label(binary_image_filled))
+            # Step 4: Label the connected components (nuclei)
+            labeled_image = segmentation.clear_border(
+                measure.label(binary_image_filled)
+            )
 
-        imwrite(config.output_dir / f"{name}_labeled.tiff", labeled_image)
+            imwrite(config.output_dir / f"{name}_labeled.tiff", labeled_image)
 
-        properties = measure.regionprops_table(
-            labeled_image,
-            intensity_image=image,
-            properties=["label", "area", "mean_intensity"],
-        )
+            properties = measure.regionprops_table(
+                labeled_image,
+                intensity_image=image,
+                properties=["label", "area", "mean_intensity"],
+            )
 
-        # Convert to pandas DataFrame for easy export
-        properties_df = pd.DataFrame(properties)
+            # Convert to pandas DataFrame for easy export
+            properties_df = pd.DataFrame(properties)
 
-        properties_df.to_csv(
-            config.output_dir / f"{name}_measurements.csv", index=False
-        )
+            properties_df.to_csv(
+                config.output_dir / f"{name}_measurements.csv", index=False
+            )
 
     logger.info("Done.")
 

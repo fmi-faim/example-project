@@ -6,6 +6,7 @@ from faim_ipa.utils import IPAConfig, get_git_root
 
 class AcquisitionConfig(IPAConfig):
     raw_data_dir: Path = get_git_root() / "raw_data"
+    suffix: str = ".TIF"
     output_dir: Path = get_git_root() / "processed_data"
 
     def config_name(self) -> str:
@@ -18,6 +19,9 @@ class AcquisitionConfig(IPAConfig):
                 default=str(get_git_root() / "raw_data"),
             ).ask()
         )
+        self.suffix = questionary.text(
+            "Enter the suffix of the files to process:", default=".TIF"
+        ).ask()
         self.output_dir = Path(
             questionary.path(
                 "Select the output dir:",

@@ -13,8 +13,9 @@ platforms = ["linux-64", "win-64", "osx-arm64", "osx-64"]
 cache_status = "python -m faim_ipa.pixi.cache_status"
 source_status = "python -m faim_ipa.pixi.src_status source"
 log_commit = {cmd = 'python -m faim_ipa.pixi.log_commit $TASK', env = {TASK = ""}}
-build_config = { cmd = "mkdir -p $WD ; TASK=BUILD_CONFIG pixi run log_commit ; cd $WD ; python $PIXI_PROJECT_ROOT/source/s01_demo/config.py", env = { WD = "runs/example"}, depends_on=["cache_status", "source_status"]}
-demo = { cmd = "cd $WD ; python $PIXI_PROJECT_ROOT/source/s01_demo/run.py --config $(pwd)/demo_config.yaml", env = { WD = "runs/example"}, depends_on=["cache_status", "source_status"]}
+build_config = { cmd = "mkdir -p $WD ; TASK=BUILD_CONFIG pixi run log_commit ; cd $WD ; python $PIXI_PROJECT_ROOT/source/s01_segment/config.py", env = { WD = "runs/example"}, depends_on=["cache_status", "source_status"]}
+segment = { cmd = "cd $WD ; TASK=SEGMENT pixi run log_commit ; python $PIXI_PROJECT_ROOT/source/s01_segment/run.py --config acquisition_config.yaml", env = { WD = "runs/example"}, depends_on=["cache_status", "source_status"]}
+measure = { cmd = "cd $WD ; TASK=MEASURE pixi run log_commit ; python $PIXI_PROJECT_ROOT/source/s02_measure/run.py --config measure_config.yaml", env = { WD = "runs/example"}, depends_on=["cache_status", "source_status"]}
 
 [dependencies]
 python = "3.12"

@@ -50,6 +50,7 @@ def main(config: AcquisitionConfig):
 
     measure_config = MeasureConfig(
         raw_data_dir=config.raw_data_dir,
+        suffix=config.suffix,
         segmentation_dir=output_dir,
         output_dir=config.output_dir,
     )

@@ -51,7 +51,7 @@ platforms = ["linux-64", "osx-64", "osx-arm64"]
 nextflow = ">=24.4.4,<25"
 
 [feature.nextflow.tasks]
-nextflow = { cmd="TASK=NEXTFLOW pixi run log_commit ; cd $WD ; nextflow run $PIXI_PROJECT_ROOT/source/workflow.nf --config $(pwd)/config.yaml", env = { WD = "runs/example", PROFILE = "standard", MAIL = ""}, depends_on = ["cache_status", "source_status"]}
+nextflow = { cmd="TASK=NEXTFLOW pixi run log_commit ; cd $WD ; nextflow run $PIXI_PROJECT_ROOT/source/workflow.nf --config $(pwd)/acquisition_config.yaml", env = { WD = "runs/example", PROFILE = "standard", MAIL = ""}, depends_on = ["cache_status", "source_status"]}
 
 [feature.jupyter.dependencies]
 jupyter = ">=1.0.0,<1.1"

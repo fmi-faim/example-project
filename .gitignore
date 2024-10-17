@@ -231,3 +231,9 @@ infrastructure/.tmp_*/**
 
 # include githash.log
 !**/githash.log
+
+# nextflow
+runs/**/.nextflow
+runs/**/.nextflow.log*
+runs/**/work
+runs/**/*.html

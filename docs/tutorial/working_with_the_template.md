@@ -1,0 +1,2 @@
+# Working with the Template
+This section of the tutorial guides you through the development steps of an image processing and analysis project using the [IPA Project Template](https://fmi-faim.github.io/ipa-project-template/). We will start by copying the template to a new project directory and then build up this example-project step-by-step. The point of this tutorial is to show you how to work with the template and specifically how to separate workflow development from applying the workflow to data.

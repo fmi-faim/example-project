@@ -7,12 +7,14 @@ This is an example project demonstrating the [IPA Project Template](https://fmi-
 </figure>
 
 ## Reproduce the Results
-The current view of the project represents a finalized image processing and analysis project. You can think of it as a published research project. To reproduce the results, you need to clone the repository and follow the [installation instructions](example-project/installation), [download the data](example-project/data), and [run the processing steps](example-project/how_to/run_processing_steps).
+The current view of the project represents a finalized image processing and analysis project. You can think of it as a published research project. To reproduce the results, you need to clone the repository and follow the [installation instructions](installation.md), [download the data](data.md), and [run the processing steps](tutorial/run_processing_steps.md).
 
 ## How to Work with the Project Template
-If you are interested in learning how to work with the project template, please follow the [tutorial](example-project/tutorial). Or you can browse the different implementation stages by looking at the branches of this repository:
+If you are interested in learning how to work with the project template, please follow the [tutorial](tutorial/working_with_the_template.md). Or you can browse the different implementation stages by looking at the commits of this repository:
 
-1. [Copy Template]()
-1. [Develop Image Processing and Analysis Routine]()
-1. [Convert Routine to Reproducible Processing Steps]()
-1. [Bundle Processing Steps into a Workflow]()
+1. [Copy Template](https://github.com/fmi-faim/example-project/tree/414941ed066f7e9a52681f95eed2d9460e029647)
+1. [Develop Image Processing and Analysis Routine](https://github.com/fmi-faim/example-project/tree/85e6c52a8dd4f6349e11c9588f570a6f8cebd805)
+1. [Convert Routine to Reproducible Processing Steps](https://github.com/fmi-faim/example-project/tree/85e6c52a8dd4f6349e11c9588f570a6f8cebd805)
+1. [Bundle Processing Steps into a Workflow](https://github.com/fmi-faim/example-project/tree/85e6c52a8dd4f6349e11c9588f570a6f8cebd805)
+1. [Add Visualization Notebook](https://github.com/fmi-faim/example-project/tree/85e6c52a8dd4f6349e11c9588f570a6f8cebd805)
+1. [Finalize Documentation](https://github.com/fmi-faim/example-project)

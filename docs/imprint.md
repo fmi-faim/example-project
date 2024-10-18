@@ -1,9 +1,10 @@
 # Imprint
 
 ## Contact
-
-Address of your organization
-
+[Facility for Advanced Imaging and Microscopy](https://www.fmi.ch/platforms/platform.html?plt=110)</br>
+Friedrich Miescher Institute for Biomedical Research</br>
+Maulbeerstrasse 66</br>
+CH - 4058 Basel
 
 ## License
 All online documents, websites and parts thereof are licensed under [Creative Commons CC-BY 4.0 License](https://creativecommons.org/licenses/by/4.0/).

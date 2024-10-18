@@ -11,12 +11,9 @@ nav:
     - 'Step-by-Step': tutorial/run_processing_steps.md
     - 'Nextflow Workflow': tutorial/run_workflow.md
     - 'Working with the Template': tutorial/working_with_the_template.md
-  - 'How-to Guide':
-    - 'Guides': how_to/guides.md
-  - Explanation:
-    - 'Explanations': explanation/explanations.md
-  - References:
-    - References: references/references.md
+  - 'How-to Guides': how_to/guides.md
+  - Explanation: explanation/explanations.md
+  - References: references/references.md
   - Imprint: imprint.md
 theme:
   name: material
@@ -58,16 +55,16 @@ theme:
 plugins:
   - offline:
       enabled: !ENV [ OFFLINE, false ]  # noqa
-#  - git-revision-date-localized:
-#      enable_creation_date: true
-#   - git-committers:
-#       repository: TO-DO
-#       branch: main
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-committers:
+     repository: fmi-faim/example-project
+     branch: main
   - mkdocstrings:
       default_handler: python
       handlers:
         python:
-          paths: [ ipa ]
+          paths: [ source ]
           options:
             docstring_style: numpy
             docstring_section_style: spacy
@@ -88,3 +85,4 @@ markdown_extensions:
   - pymdownx.superfences
   - md_in_html
   - markdown_include.include
+  - def_list

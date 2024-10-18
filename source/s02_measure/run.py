@@ -39,7 +39,7 @@ def main(config: MeasureConfig):
 
             measure_file_name = config.output_dir / f"{name}_measurements.csv"
             properties_df.to_csv(measure_file_name, index=False)
-            outputs.append(measure_file_name)
+            outputs.append(str(measure_file_name))
 
     with open("measure_outputs.yaml", "w") as f:
         yaml.dump(outputs, f, indent=4, sort_keys=False)

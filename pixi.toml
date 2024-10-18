@@ -76,4 +76,4 @@ docs = { features = ["docs"], solve-group="default" }
 dev = { features = ["dev"], solve-group="default" }
 jupyter = { features = ["jupyter"], solve-group="default" }
 nbdev = { features = ["nbdev"], no-default-feature = true}
-nextflow = { features = ["nextflow"], solve-group="default" }
+nextflow = { features = ["nextflow"] }

@@ -21,7 +21,7 @@ def main(config: AcquisitionConfig):
     logger = create_logger("segmentation")
     logger.info(pretty_repr(config))
 
-    output_dir = config.output_dir / "s01_segmentation"
+    output_dir = config.output_dir / config.raw_data_dir.name / "s01_segmentation"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     for item in scandir(config.raw_data_dir):
@@ -52,7 +52,7 @@ def main(config: AcquisitionConfig):
         raw_data_dir=config.raw_data_dir,
         suffix=config.suffix,
         segmentation_dir=output_dir,
-        output_dir=config.output_dir,
+        output_dir=output_dir.parent,
     )
     measure_config.save()
 

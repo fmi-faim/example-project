@@ -13,8 +13,7 @@ nav:
     - 'Working with the Template': tutorial/working_with_the_template.md
   - 'How-to Guide':
     - 'Guides': how_to/guides.md
-  - Explanation:
-    - 'Explanations': explanation/explanations.md
+  - Explanation: explanation/explanations.md
   - References:
     - References: references/references.md
   - Imprint: imprint.md
@@ -58,16 +57,16 @@ theme:
 plugins:
   - offline:
       enabled: !ENV [ OFFLINE, false ]  # noqa
-#  - git-revision-date-localized:
-#      enable_creation_date: true
-#   - git-committers:
-#       repository: TO-DO
-#       branch: main
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-committers:
+     repository: https://github.com/fmi-faim/example-project
+     branch: main
   - mkdocstrings:
       default_handler: python
       handlers:
         python:
-          paths: [ ipa ]
+          paths: [ source ]
           options:
             docstring_style: numpy
             docstring_section_style: spacy

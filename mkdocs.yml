@@ -1,14 +1,16 @@
 site_name: Example Project
-# site_url: TO-DO
-# repo_url: TO-DO
-# repo_name: TO-DO
+site_url: https://fmi-faim.github.io//example-project
+repo_url: https://github.com/fmi-faim/example-project
+repo_name: example-project
 copyright: Copyright &copy; 2024, Friedrich Miescher Institute for Biomedical Research (FMI), Basel (Switzerland)
 nav:
   - Home: index.md
-  - Data: data.md
   - Installation: installation.md
+  - Data: data.md
   - Tutorial:
-    - 'Tutorials': tutorial/tutorials.md
+    - 'Step-by-Step': tutorial/run_processing_steps.md
+    - 'Nextflow Workflow': tutorial/run_workflow.md
+    - 'Working with the Template': tutorial/working_with_the_template.md
   - 'How-to Guide':
     - 'Guides': how_to/guides.md
   - Explanation:
@@ -84,3 +86,5 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - md_in_html
+  - markdown_include.include

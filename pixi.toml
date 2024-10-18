@@ -32,6 +32,7 @@ mkdocs-git-revision-date-localized-plugin = ">=1.2.6,<2"
 mkdocs-material = ">=9.5.31,<10"
 mkdocstrings = ">=0.25.2,<0.26"
 mkdocstrings-python = ">=1.10.7,<2"
+markdown-include = ">=0.8.1,<0.9"
 
 [feature.docs.tasks]
 clean_docs = "rm -rf site"
@@ -62,8 +63,8 @@ pyqt = ">=5.15.9,<6"
 [feature.jupyter.tasks]
 jupyter = "jupyter lab"
 napari = "napari"
-cp_vis = { cmd = "cp $PIXI_PROJECT_ROOT/source/s03_visualization/Visualize_Results.ipynb $WD", env = { WD = "runs/example"}, depends_on=["source_status"] }
-visualize = { cmd = "TASK=VISUALIZE pixi run log_commit ; cd $WD ; jupyter lab ./Visualize_Results.ipynb", env = { WD = "runs/example"}, depends_on=["cp_vis", "source_status"] }
+cp_vis = { cmd = "cd $WD ; cp $PIXI_PROJECT_ROOT/source/s03_visualization/Visualize_Results.ipynb .", env = { WD = "runs/example" } }
+visualize = { cmd = "TASK=VISUALIZE pixi run log_commit ; cd $WD ; jupyter lab ./Visualize_Results.ipynb", env = { WD = "runs/example"}, depends_on=["source_status", "cp_vis"] }
 
 [feature.nbdev.dependencies]
 nbdev = ">=2.2.10,<2.3"

@@ -6,6 +6,7 @@ from faim_ipa.utils import get_git_root, create_logger
 import sys
 
 from rich.pretty import pretty_repr
+from skimage.measure import label
 from tifffile import imread, imwrite
 
 from skimage import filters, measure, morphology, segmentation
@@ -41,8 +42,8 @@ def main(config: AcquisitionConfig):
                 binary_image_cleaned, area_threshold=64
             )
 
-            labeled_image = segmentation.clear_border(
-                measure.label(binary_image_filled)
+            labeled_image = label(
+                segmentation.clear_border(measure.label(binary_image_filled))
             )
 
             seg_file_name = output_dir / f"{name}_labeled.tiff"

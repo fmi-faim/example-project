@@ -62,6 +62,8 @@ pyqt = ">=5.15.9,<6"
 [feature.jupyter.tasks]
 jupyter = "jupyter lab"
 napari = "napari"
+cp_vis = { cmd = "cp $PIXI_PROJECT_ROOT/source/s03_visualization/Visualize_Results.ipynb $WD", env = { WD = "runs/example"}, outputs=["$WD/Visualize_Results.ipynb"], depends_on=["source_status"] }
+visualize = { cmd = "TASK=VISUALIZE pixi run log_commit ; cd $WD ; jupyter lab ./Visualize_Results.ipynb", env = { WD = "runs/example"}, depends_on=["cp_vis", "source_status"] }
 
 [feature.nbdev.dependencies]
 nbdev = ">=2.2.10,<2.3"

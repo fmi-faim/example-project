@@ -37,7 +37,7 @@ def main(config: MeasureConfig):
 
             properties_df = pd.DataFrame(properties)
 
-            measure_file_name = config.output_dir / f"{name}_measurements.csv"
+            measure_file_name = output_dir / f"{name}_measurements.csv"
             properties_df.to_csv(measure_file_name, index=False)
             outputs.append(str(measure_file_name))
 

@@ -67,9 +67,60 @@ We want to develop a workflow which
 Feel free to develop your own workflow or get inspired by [our jupyter notebook](https://github.com/fmi-faim/example-project/blob/85e6c52a8dd4f6349e11c9588f570a6f8cebd805/sandbox/Prototype-Image-Analysis.ipynb).
 
 ## Convert Routine to Reproducible Processing Steps
-Code moves to `source`.
+When you are done developing your image processing and analysis routine, it is time to convert it to a Python script. The Python script must be written, such that we can call it with a config file and apply it to an arbitrary raw data directory. We want to split up the processing routine into multiple sub-steps, where each step saves intermediate processing results to `processed_data`.
 
-## Run Processing Steps
+Converting a jupyter notebook into a series of standalone processing steps is an important step to make our research code reproducible. At this point in time we want to think carefully about how to split our jupyter notebook into a series of individual processing scripts. For this example-project we suggest to split the processing in two steps:
+
+1. segment
+2. measure
+
+!!! info
+    One could keep everything in a single big processing step. However, by splitting the code into sub-steps, we can recover from intermediate results in case a processing step fails.
+
+
+To get started you can run the copier command again:
+
+!!! danger
+    Make sure you are in the parent directory of the `example-project` when you call the copier command.
+
+```bash
+pixi x copier copy git+https://github.com/fmi-faim/ipa-project-template example-project
+```
+
+This time answer `y` to the `Do you want to add a config and run demo?` question. This will add the following to your template:
+
+```text
+source
+└── s01_demo
+  ├── __init__.py
+  ├── config.py
+  └── run.tif
+```
+
+### Implement s01_segment
+Rename `s01_demo` to `s01_segment` and then we want to think about the parameters we want to expose to the user. In our workflow we want to configure three parameters:
+
+* `raw_data_dir`: The directory where the raw tiff files are stored.
+* `suffix`: Suffix of the tiff files. Sometimes it is `.TIF` and sometimes it is `.tif`.
+* `output_dir`: Where to store the segmentation masks.
+
+Edit the `config.py` to match [our implementation](https://github.com/fmi-faim/example-project/blob/21b4b97141074c105b0852681609980f6768e9db/source/s01_segment/config.py).
+
+We added a `prompt()` function to the `AcquisitionConfig`, which we can use to ask the user for input. Now we only need to add a pixi-task which will call the script. We do this by adding [this line](https://github.com/fmi-faim/example-project/blob/21b4b97141074c105b0852681609980f6768e9db/pixi.toml#L16) to our `pixi.toml` file.
+
+
+Now that we can create config files, we will add the processing code to `run.py`. Edit the file until it matches [our implementation](https://github.com/fmi-faim/example-project/blob/21b4b97141074c105b0852681609980f6768e9db/source/s01_segment/run.py).
+
+!!! note
+    This script will not work at the moment, because we are using the `MeasureConfig` in [this line](https://github.com/fmi-faim/example-project/blob/21b4b97141074c105b0852681609980f6768e9db/source/s01_segment/run.py#L52). However, this file does not exist yet.
+
+### Implement s02_segment
+Create a new directory in `source` called `s02_measure` and add all the files from [our reference implementation](https://github.com/fmi-faim/example-project/tree/21b4b97141074c105b0852681609980f6768e9db/source/s02_measure).
+
+Finally, we want to add the pixi-tasks to run the two processing steps. Edit your `pixi.toml` file and add [these two lines](https://github.com/fmi-faim/example-project/blob/21b4b97141074c105b0852681609980f6768e9db/pixi.toml#L17-L18).
+
+!!! success
+    Congratulations! You have converted your jupyter notebook to reproducible processing steps! To run them, follow the [step-by-step tutorial](run_processing_steps.md)
 
 ## Bundle Processing Steps into a Workflow
 

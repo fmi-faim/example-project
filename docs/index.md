@@ -14,7 +14,7 @@ If you are interested in learning how to work with the project template, please 
 
 1. [Copy Template](https://github.com/fmi-faim/example-project/tree/414941ed066f7e9a52681f95eed2d9460e029647)
 1. [Develop Image Processing and Analysis Routine](https://github.com/fmi-faim/example-project/tree/85e6c52a8dd4f6349e11c9588f570a6f8cebd805)
-1. [Convert Routine to Reproducible Processing Steps](https://github.com/fmi-faim/example-project/tree/85e6c52a8dd4f6349e11c9588f570a6f8cebd805)
+1. [Convert Routine to Reproducible Processing Steps](https://github.com/fmi-faim/example-project/tree/21b4b97141074c105b0852681609980f6768e9db)
 1. [Bundle Processing Steps into a Workflow](https://github.com/fmi-faim/example-project/tree/85e6c52a8dd4f6349e11c9588f570a6f8cebd805)
 1. [Add Visualization Notebook](https://github.com/fmi-faim/example-project/tree/85e6c52a8dd4f6349e11c9588f570a6f8cebd805)
 1. [Finalize Documentation](https://github.com/fmi-faim/example-project)

@@ -3,9 +3,25 @@ The image processing and analysis steps can be executed one-by-one. We will demo
 
 ## Build Config
 The first step is to build the config file. To this end you must run the following command:
-```bash
-WD=runs/BBBC01 pixi run build_config
-```
+
+=== "Linux and macOS"
+
+    ```bash
+    WD=runs/BBBC01 pixi run build_config
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    $env:WD='runs/BBBC01'; pixi run build_config
+    ```
+
+=== "Windows (Command Prompt)"
+
+    ```cmd
+    set WD=runs/BBBC01
+    pixi run build_config
+    ```
 
 !!! info "Environment Variable `WD`"
     The `WD` variable is used to specify the working directory. This is where the config file will be stored. Check the `runs` directory for the newly created `BBBC01` directory containing the `acquisition_config.yaml` file.
@@ -23,9 +39,25 @@ Next to the `acquisition_config.yaml` file you will find the `githash.log` file.
 
 ## Run Segmentation
 The first processing step is to segment the nuclei. To this end you must run the following command:
-```bash
-WD=runs/BBBC01 pixi run segment
-```
+
+=== "Linux and macOS"
+
+    ```bash
+    WD=runs/BBBC01 pixi run segment
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    $env:WD='runs/BBBC01'; pixi run segment
+    ```
+
+=== "Windows (Command Prompt)"
+
+    ```cmd
+    set WD=runs/BBBC01
+    pixi run segment
+    ```
 
 This will execute the first processing step and produce the following outputs:
 
@@ -35,9 +67,25 @@ This will execute the first processing step and produce the following outputs:
 
 ## Extract Measurements
 The second processing step is to extract measurements from the segmented nuclei. To this end you must run the following command:
-```bash
-WD=runs/BBBC01 pixi run measure
-```
+
+=== "Linux and macOS"
+
+    ```bash
+    WD=runs/BBBC01 pixi run measure
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    $env:WD='runs/BBBC01'; pixi run measure
+    ```
+
+=== "Windows (Command Prompt)"
+
+    ```cmd
+    set WD=runs/BBBC01
+    pixi run measure
+    ```
 
 This will execute the second processing step and produce the following outputs:
 
@@ -47,9 +95,25 @@ This will execute the second processing step and produce the following outputs:
 
 ## Visualize Results
 The final step is to visualize the results. To this end you must run the following command:
-```bash
-WD=runs/BBBC01 pixi run visualize
-```
+
+=== "Linux and macOS"
+
+    ```bash
+    WD=runs/BBBC01 pixi run visualize
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    $env:WD='runs/BBBC01'; pixi run visualize
+    ```
+
+=== "Windows (Command Prompt)"
+
+    ```cmd
+    set WD=runs/BBBC01
+    pixi run visualize
+    ```
 
 In the jupyter notebook that opens you can select the experiment and image to visualize. The notebook will display the original image, the segmented nuclei, and the extracted measurements in napari.
 

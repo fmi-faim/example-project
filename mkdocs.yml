@@ -47,6 +47,7 @@ theme:
     - navigation.footer
     - header.autohide
     - content.code.copy
+    - content.tabs.link
   shortcuts:
     help: 191    # ?
     next: 78     # n
@@ -83,6 +84,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - md_in_html
   - markdown_include.include
   - def_list

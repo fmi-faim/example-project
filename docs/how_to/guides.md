@@ -20,35 +20,111 @@ pixi run show_docs
 ## Data Processing
 ### Build Config
 Build the `acquisition_config.yaml` file and store it in the working directory `WD`:
-```bash
-WD=runs/dataset-name pixi run build_config
-```
+
+=== "Linux and macOS"
+
+    ```bash
+    WD=runs/dataset-name pixi run build_config
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    $env:WD='runs/dataset-name'; pixi run build_config
+    ```
+
+=== "Windows (Command Prompt)"
+
+    ```cmd
+    set WD=runs/dataset-name
+    pixi run build_config
+    ```
+
 
 Replace `dataset-name` with the name of the dataset you would like to process.
 
 ### Run Segment
 Run the segmentation step, with the `acquisition_config.yaml` stored in `WD`, manually:
-```bash
-WD=runs/dataset-name pixi run segment
-```
+
+=== "Linux and macOS"
+
+    ```bash
+    WD=runs/dataset-name pixi run segment
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    $env:WD='runs/dataset-name'; pixi run segment
+    ```
+
+=== "Windows (Command Prompt)"
+
+    ```cmd
+    set WD=runs/dataset-name
+    pixi run segment
+    ```
 
 ### Run Measure
 Run the measure step, with the `measure_config.yaml` stored in `WD`, manually:
-```bash
-WD=runs/dataset-name pixi run measure
-```
+
+=== "Linux and macOS"
+
+    ```bash
+    WD=runs/dataset-name pixi run measure
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    $env:WD='runs/dataset-name'; pixi run measure
+    ```
+
+=== "Windows (Command Prompt)"
+
+    ```cmd
+    set WD=runs/dataset-name
+    pixi run measure
+    ```
 
 ### Visualize Results
 Run jupyter lab with the visualization jupyter notebook inside `WD`:
-```bash
-WD=runs/dataset-name pixi run visualize
-```
+
+=== "Linux and macOS"
+
+    ```bash
+    WD=runs/dataset-name pixi run visualize
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    $env:WD='runs/dataset-name'; pixi run visualize
+    ```
+
+=== "Windows (Command Prompt)"
+
+    ```cmd
+    set WD=runs/dataset-name
+    pixi run visualize
+    ```
 
 ### Run Workflow
 Instead of calling the processing steps manually, you can call the nextflow workflow with:
-```bash
-WD=runs/dataset-name pixi run nextflow
-```
+
+=== "Linux and macOS"
+
+    ```bash
+    WD=runs/dataset-name pixi run nextflow
+    ```
+
+=== "Windows (PowerShell)"
+
+    Nextflow is not available on Windows.
+
+=== "Windows (Command Prompt)"
+
+    Nextflow is not available on Windows.
 
 ## Development
 ### Jupyter Lab

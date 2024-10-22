@@ -1,0 +1,3 @@
+raw_data_dir: raw_data/BBBC002_v1_images/drosophila_kc167_1_images
+suffix: .TIF
+output_dir: processed_data

@@ -228,3 +228,6 @@ results/**
 
 # TMP
 infrastructure/.tmp_*/**
+
+# include githash.log
+!**/githash.log

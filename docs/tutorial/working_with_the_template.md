@@ -4,6 +4,9 @@ This section of the tutorial guides you through the development steps of an imag
 !!! attention Prerequisites
     Follow the [installation instructions](https://fmi-faim.github.io/ipa-project-template/) for pixi and copier before your continue here.
 
+!!! info "Issues & Feedback"
+    In case you encounter any issues or have questions regarding our project template, please open an [issue](https://github.com/fmi-faim/example-project/issues).
+
 ## Copy the Template
 First we need to create an instance of the template by running the copier command:
 
@@ -47,8 +50,8 @@ pixi run build_docs
 
 The very last setup step is to get some raw data. Please follow the instructions in [data](../data.md).
 
-!!! success
-    Congratulations! You have created your first project from the [IPA Project Template](https://fmi-faim.github.io/ipa-project-template/)!
+!!! success "Congratulations!"
+    You have created your first project from the [IPA Project Template](https://fmi-faim.github.io/ipa-project-template/)!
 
 ## Develop Image Processing and Analysis Routine
 Now it is time to prototype the image processing and analysis routine. The most interactive way to do this is with jupyter lab. You can start jupyter lab with the following command:
@@ -119,11 +122,38 @@ Create a new directory in `source` called `s02_measure` and add all the files fr
 
 Finally, we want to add the pixi-tasks to run the two processing steps. Edit your `pixi.toml` file and add [these two lines](https://github.com/fmi-faim/example-project/blob/21b4b97141074c105b0852681609980f6768e9db/pixi.toml#L17-L18).
 
-!!! success
-    Congratulations! You have converted your jupyter notebook to reproducible processing steps! To run them, follow the [step-by-step tutorial](run_processing_steps.md)
+!!! success "Congratulations!"
+    You have converted your jupyter notebook to reproducible processing steps! To run them, follow the [step-by-step tutorial](run_processing_steps.md)
 
 ## Bundle Processing Steps into a Workflow
+So far, you can run your processing steps one-by-one. However, we can automate this and especially for larger projects it makes sense to explore workflow orchestrators, which take care of running one step after another. Furthermore, such workflow orchestrators can recover processing in case of failure or scale up processing to run in parallel on high performance computing or in the cloud. In our case we will use [nextflow](https://nextflow.io/). Unfortunately, nextflow is not available on Windows.
+
+To get started you can run the copier command again:
+
+!!! danger
+    Make sure you are in the parent directory of the `example-project` when you call the copier command.
+
+```bash
+pixi x copier copy git+https://github.com/fmi-faim/ipa-project-template example-project
+```
+
+This time answer `y` to the `Do you want to include Nextflow in your project?` question.
+
+This will add `nextflow.config` and `workflow.nf` to the `source` directory. Edit these files until they match [our reference implementation](https://github.com/fmi-faim/example-project/tree/1543b8d7620c4585c7f155f9767df68e854d8ed3/source) and verify that the `pixi.toml` file matches [our `pixi.toml` file](https://github.com/fmi-faim/example-project/blob/1543b8d7620c4585c7f155f9767df68e854d8ed3/pixi.toml).
+
+!!! success "Congratulations!"
+    You have added a nextflow workflow to your example-project! To run it, follow the [workflow tutorial](run_workflow.md)
 
 ## Add Visualization Notebook
+It is good practice to provide some form of visualization of your processing results. We do this by adding a 3rd step `s03_visualization` to our `source` directory. In this directory we have the [`visualization_utils.py`](https://github.com/fmi-faim/example-project/blob/b99e57d898e9ad34ec329f1bf9ce1a5afa3d372b/source/s03_visualization/visualization_utils.py) file and the [`Visualize_Results.ipynb`](https://github.com/fmi-faim/example-project/blob/b99e57d898e9ad34ec329f1bf9ce1a5afa3d372b/source/s03_visualization/Visualize_Results.ipynb) notebook. You can copy these files from our reference implementation. Additionally, you need to add [these two](https://github.com/fmi-faim/example-project/blob/b99e57d898e9ad34ec329f1bf9ce1a5afa3d372b/pixi.toml#L65-L66) lines to your `pixi.toml`. Now you are ready to run the visualization as described [here](run_processing_steps.md#visualize-results).
 
 ## Finalize Documentation
+Finally, we want to create all the necessary documentation for this project. Run the following command to get a live view of the website:
+```bash
+pixi run show_docs
+```
+
+Now you can edit the markdown files in `docs` and the website will be rendered fresh if any change is detected.
+
+!!! success "Congratulations!"
+    You finished the IPA Project Template tutorial!

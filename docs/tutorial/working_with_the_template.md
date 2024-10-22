@@ -139,13 +139,13 @@ pixi x copier copy git+https://github.com/fmi-faim/ipa-project-template example-
 
 This time answer `y` to the `Do you want to include Nextflow in your project?` question.
 
-This will add `nextflow.config` and `workflow.nf` to the `source` directory. Edit these files until they match [our reference implementation](https://github.com/fmi-faim/example-project/tree/1543b8d7620c4585c7f155f9767df68e854d8ed3/source) and verify that the `pixi.toml` file matches [our `pixi.toml` file](https://github.com/fmi-faim/example-project/blob/1543b8d7620c4585c7f155f9767df68e854d8ed3/pixi.toml).
+This will add `nextflow.config` and `workflow.nf` to the `source` directory. Edit these files until they match [our reference implementation](https://github.com/fmi-faim/example-project/tree/706c41537895324ebef57a4086eeedee2d5a1039/source) and verify that the `pixi.toml` file matches [our `pixi.toml` file](https://github.com/fmi-faim/example-project/blob/706c41537895324ebef57a4086eeedee2d5a1039/pixi.toml).
 
 !!! success "Congratulations!"
     You have added a nextflow workflow to your example-project! To run it, follow the [workflow tutorial](run_workflow.md)
 
 ## Add Visualization Notebook
-It is good practice to provide some form of visualization of your processing results. We do this by adding a 3rd step `s03_visualization` to our `source` directory. In this directory we have the [`visualization_utils.py`](https://github.com/fmi-faim/example-project/blob/b99e57d898e9ad34ec329f1bf9ce1a5afa3d372b/source/s03_visualization/visualization_utils.py) file and the [`Visualize_Results.ipynb`](https://github.com/fmi-faim/example-project/blob/b99e57d898e9ad34ec329f1bf9ce1a5afa3d372b/source/s03_visualization/Visualize_Results.ipynb) notebook. You can copy these files from our reference implementation. Additionally, you need to add [these two](https://github.com/fmi-faim/example-project/blob/b99e57d898e9ad34ec329f1bf9ce1a5afa3d372b/pixi.toml#L65-L66) lines to your `pixi.toml`. Now you are ready to run the visualization as described [here](run_processing_steps.md#visualize-results).
+It is good practice to provide some form of visualization of your processing results. We do this by adding a 3rd step `s03_visualization` to our `source` directory. In this directory we have the [`visualization_utils.py`](https://github.com/fmi-faim/example-project/blob/47f389e18a2850417cef607fa4a9803396fb0f90/source/s03_visualization/visualization_utils.py) file and the [`Visualize_Results.ipynb`](https://github.com/fmi-faim/example-project/blob/47f389e18a2850417cef607fa4a9803396fb0f90/source/s03_visualization/Visualize_Results.ipynb) notebook. You can copy these files from our reference implementation. Additionally, you need to add [these two](https://github.com/fmi-faim/example-project/blob/47f389e18a2850417cef607fa4a9803396fb0f90/pixi.toml#L65-L66) lines to your `pixi.toml`. Now you are ready to run the visualization as described [here](run_processing_steps.md#visualize-results).
 
 ## Finalize Documentation
 Finally, we want to create all the necessary documentation for this project. Run the following command to get a live view of the website:

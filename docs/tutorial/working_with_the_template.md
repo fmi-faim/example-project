@@ -69,6 +69,17 @@ We want to develop a workflow which
 
 Feel free to develop your own workflow or get inspired by [our jupyter notebook](https://github.com/fmi-faim/example-project/blob/85e6c52a8dd4f6349e11c9588f570a6f8cebd805/sandbox/Prototype-Image-Analysis.ipynb).
 
+!!! tip "Commit your changes"
+    Now would be a good time to [lint](https://en.wikipedia.org/wiki/Lint_(software)) your code and
+    commit your changes into the git repository.
+    ```
+    pixi run lint
+    git add .
+    git commit -m "First draft"
+    ```
+    [Here](https://focalplane.biologists.com/2021/09/04/collaborative-bio-image-analysis-script-editing-with-git/) is a nice git tutorial you might want to look at to get started.
+
+
 ## Convert Routine to Reproducible Processing Steps
 When you are done developing your image processing and analysis routine, it is time to convert it to a Python script. The Python script must be written, such that we can call it with a config file and apply it to an arbitrary raw data directory. We want to split up the processing routine into multiple sub-steps, where each step saves intermediate processing results to `processed_data`.
 
@@ -111,6 +122,11 @@ Edit the `config.py` to match [our implementation](https://github.com/fmi-faim/e
 
 We added a `prompt()` function to the `AcquisitionConfig`, which we can use to ask the user for input. Now we only need to add a pixi-task which will call the script. We do this by adding [this line](https://github.com/fmi-faim/example-project/blob/21b4b97141074c105b0852681609980f6768e9db/pixi.toml#L16) to our `pixi.toml` file.
 
+!!! note "Uncommitted changes"
+    If you make your pixi task depend on the `source_status` task that comes with the template,
+    you can ensure that it warns you if there are any uncommitted changes, thereby ensuring
+    that you always commit any changes and run on a clean, reproducible state of your repository.
+
 
 Now that we can create config files, we will add the processing code to `run.py`. Edit the file until it matches [our implementation](https://github.com/fmi-faim/example-project/blob/21b4b97141074c105b0852681609980f6768e9db/source/s01_segment/run.py).
 
@@ -124,6 +140,10 @@ Finally, we want to add the pixi-tasks to run the two processing steps. Edit you
 
 !!! success "Congratulations!"
     You have converted your jupyter notebook to reproducible processing steps! To run them, follow the [step-by-step tutorial](run_processing_steps.md)
+
+!!! tip "Commit your changes"
+    Don't forget to commit your changes into the git repository.
+
 
 ## Bundle Processing Steps into a Workflow
 So far, you can run your processing steps one-by-one. However, we can automate this and especially for larger projects it makes sense to explore workflow orchestrators, which take care of running one step after another. Furthermore, such workflow orchestrators can recover processing in case of failure or scale up processing to run in parallel on high performance computing or in the cloud. In our case we will use [nextflow](https://nextflow.io/). Unfortunately, nextflow is not available on Windows.
@@ -156,4 +176,5 @@ pixi run show_docs
 Now you can edit the markdown files in `docs` and the website will be rendered fresh if any change is detected.
 
 !!! success "Congratulations!"
-    You finished the IPA Project Template tutorial!
+    You finished the IPA Project Template tutorial!<br/>
+    Don't forget to always commit your changes.

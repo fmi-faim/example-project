@@ -1,15 +1,12 @@
 import argparse
+import sys
 from os import scandir
 from pathlib import Path
 
-from faim_ipa.utils import get_git_root, create_logger
-import sys
-
+from faim_ipa.utils import create_logger, get_git_root
 from rich.pretty import pretty_repr
-from tifffile import imread, imwrite
-
 from skimage import filters, measure, morphology, segmentation
-
+from tifffile import imread, imwrite
 
 sys.path.append(str(get_git_root()))
 

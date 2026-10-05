@@ -1,14 +1,12 @@
-from tifffile import imread
+from glob import glob
+from pathlib import Path
 
 import numpy as np
-
 import pandas as pd
-
-from ipywidgets import widgets
-from IPython.display import display
 from faim_ipa.utils import get_git_root
-from pathlib import Path
-from glob import glob
+from IPython.display import display
+from ipywidgets import widgets
+from tifffile import imread
 
 
 def select_data():
